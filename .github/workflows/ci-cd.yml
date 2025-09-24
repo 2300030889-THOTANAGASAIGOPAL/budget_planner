@@ -30,10 +30,11 @@ jobs:
       - name: Build and push backend
         uses: docker/build-push-action@v4
         with:
-          context: ./backend/budget-planner-backend
-          file: ./backend/budget-planner-backend/Dockerfile
-          push: true
-          tags: tsaigopal/budget-planner-backend:latest
+        context: ./backend
+        file: ./backend/Dockerfile
+        push: true
+        tags: tsaigopal/budget-planner-backend:latest
+
 
       # Step 5: Build & push Frontend image
       - name: Build and push frontend
