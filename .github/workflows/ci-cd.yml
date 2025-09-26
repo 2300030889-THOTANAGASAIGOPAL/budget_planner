@@ -67,15 +67,19 @@ jobs:
               sudo pip3 install docker-compose
             fi
 
-            # Ensure project directory exists
-            if [ ! -d "~/budget_planner" ]; then
+            # Ensure project directory exists or reset it
+            if [ ! -d ~/budget_planner/.git ]; then
+              rm -rf ~/budget_planner
               git clone https://github.com/2300030889-THOTANAGASAIGOPAL/budget_planner.git ~/budget_planner
+              cd ~/budget_planner
+            else
+              cd ~/budget_planner
+              git reset --hard
+              git pull origin main
             fi
 
-            cd ~/budget_planner
-
-            # Pull latest changes
-            git pull origin main || true
+            # Clean unused Docker stuff to save EC2 space
+            docker system prune -af || true
 
             # Deploy with docker-compose
             docker-compose pull
