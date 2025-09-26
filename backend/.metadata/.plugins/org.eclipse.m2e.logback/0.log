@@ -827,3 +827,4 @@ Caused by: org.eclipse.aether.transfer.ArtifactNotFoundException: org.projectlom
 2025-09-24 08:22:41,193 [Worker-14: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
 2025-09-24 08:22:41,218 [Worker-14: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Naga Sai Gopal\OneDrive\Documents\Desktop\SEM\SEM-5\devops\budget-planner\backend\budget-planner-backend\src\test\resources
 2025-09-24 08:27:31,688 [Worker-7: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2025-09-26 15:13:01,234 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.

@@ -1,9 +1,0 @@
-package com.budgetplannerbackend.repository;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-import com.budgetplannerbackend.model.Income;
-import java.util.List;
-
-public interface IncomeRepository extends JpaRepository<Income, Long> {
-    List<Income> findByUserId(Long userId);
-}

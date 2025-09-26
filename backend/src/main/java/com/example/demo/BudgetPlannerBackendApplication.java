@@ -11,5 +11,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 public class BudgetPlannerBackendApplication {
     public static void main(String[] args) {
         SpringApplication.run(BudgetPlannerBackendApplication.class, args);
+        System.out.println("Budget Planner Starts now...");
     }
 }

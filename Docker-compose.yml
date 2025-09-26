@@ -1,8 +1,8 @@
+version: "3.8"
+
 services:
   backend:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
+    image: tsaigopal/budget-planner-backend:latest
     container_name: budget-backend
     restart: always
     ports:
@@ -15,9 +15,7 @@ services:
       - db
 
   frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
+    image: tsaigopal/budget-planner-frontend:latest
     container_name: budget-frontend
     restart: always
     ports:
@@ -34,12 +32,8 @@ services:
       MYSQL_ROOT_PASSWORD: gopal59681Ab@
     volumes:
       - db_data:/var/lib/mysql
-    # Option A: Keep it internal only (no conflicts)
-    # ports: []
-    
-    # Option B: Uncomment if you want external access on localhost:3307
     ports:
-      - "3307:3306"
+      - "3307:3306"   # external access if needed
 
 volumes:
   db_data:

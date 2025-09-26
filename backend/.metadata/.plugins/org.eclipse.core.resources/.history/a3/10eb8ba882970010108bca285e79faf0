@@ -1,5 +1,0 @@
-package com.budgetplannerbackend.repository;
-
-public class UserRepository {
-
-}
