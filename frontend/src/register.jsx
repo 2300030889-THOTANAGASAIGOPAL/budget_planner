@@ -10,7 +10,7 @@ function Register({ onRegister }) {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://3.89.56.126:8081/api/auth/register", {
+      const res = await fetch("http://54.84.30.210:8081/api/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, email, password }),
