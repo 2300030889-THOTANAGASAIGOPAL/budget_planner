@@ -6,7 +6,7 @@ services:
     container_name: budget-backend
     restart: always
     ports:
-      - "8081:8081"
+      - "8081:8081"   # backend stays on 8081
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/budget_planner
       SPRING_DATASOURCE_USERNAME: root
@@ -19,7 +19,7 @@ services:
     container_name: budget-frontend
     restart: always
     ports:
-      - "5173:80"
+      - "80:5173"     # map container 5173 → host 80
     depends_on:
       - backend
 
@@ -33,7 +33,7 @@ services:
     volumes:
       - db_data:/var/lib/mysql
     ports:
-      - "3307:3306"   # external access if needed
+      - "3306:3306"   # map MySQL to host 3306 for external access
 
 volumes:
   db_data:

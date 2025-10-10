@@ -53,19 +53,22 @@ jobs:
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            # Install Docker if missing
+            # Install Docker if missing (Amazon Linux)
             if ! command -v docker &> /dev/null; then
               echo "Docker not found, installing..."
-              sudo apt-get update
-              sudo apt-get install -y docker.io
+              sudo dnf update -y
+              sudo dnf install -y docker
+              sudo systemctl start docker
+              sudo systemctl enable docker
+              sudo usermod -aG docker ec2-user
+              newgrp docker
             fi
 
             # Install docker-compose manually if missing
             if ! command -v docker-compose &> /dev/null; then
               echo "Installing docker-compose manually..."
-              sudo curl -L "https://github.com/docker/compose/releases/download/v2.21.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+              sudo curl -L "https://github.com/docker/compose/releases/download/v2.28.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
               sudo chmod +x /usr/local/bin/docker-compose
-              sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose || true
             fi
 
             # Ensure project directory exists or reset it
