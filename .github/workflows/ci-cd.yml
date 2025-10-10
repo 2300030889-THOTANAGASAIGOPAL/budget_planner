@@ -93,8 +93,7 @@ jobs:
             git clone https://github.com/2300030889-THOTANAGASAIGOPAL/budget_planner.git ~/budget_planner
             cd ~/budget_planner
 
-            # Clean old Docker resources
-            docker system prune -af || true
+            
 
             # Pull latest images and start containers
             docker-compose pull
